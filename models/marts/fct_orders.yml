@@ -19,7 +19,6 @@ models:
         entity:
           type: foreign
           name: customer_id
-
       ## dimensions
       - name: ordered_at
         dimension:
@@ -136,6 +135,7 @@ metrics: ## advanced metrics
     type: cumulative
     input_metric: order_total
     grain_to_date: month
+
 saved_queries:
   - name: order_metrics
     description: testing out order metrics in one table 

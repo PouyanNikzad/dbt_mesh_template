@@ -2,13 +2,29 @@ version: 2
 
 models:
   - name: stg_customers
+  
+    config:
+      contract:
+        enforced: true
+
     description: Customer data with basic cleaning and transformation applied, one row per customer.
     columns:
       - name: customer_id
+        data_type: string
         description: The unique key for each customer.
+        constraints:
+          - type: not_null
+          - type: unique
         tests:
           - not_null
           - unique
+      - name: name
+        data_type: string
+        description: The unique key for each customer.
+        constraints:
+          - type: not_null
+        tests:
+          - not_null      
 
   - name: stg_order_items
     description: Individual food and drink items that make up our orders, one row per item.
